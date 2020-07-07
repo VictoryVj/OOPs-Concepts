@@ -1,0 +1,67 @@
+abstract class Employee
+{
+	private String EmpName;
+	int EmpSalary;
+	
+	void setName(String EmpName)
+	{
+		this.setEmpName(EmpName);
+	}
+	
+	String getName()
+	{
+		return getEmpName();
+	}
+	
+	abstract void ComputeSalary();
+	int getSalary()
+	{
+		return EmpSalary;
+	}
+
+	public String getEmpName() {
+		return EmpName;
+	}
+
+	public void setEmpName(String empName) {
+		EmpName = empName;
+	}
+	
+}
+
+class FullTime extends Employee
+{
+	void ComputeSalary()
+	{
+		EmpSalary = 5*1000;
+	}
+	
+	void setName()
+	{
+		setEmpName(super.getEmpName());
+	}
+	
+}
+
+
+class PartTime extends Employee
+{
+	void ComputeSalary()
+	{
+		EmpSalary = 5*3000;
+	}
+}
+
+public class Abstraction
+{
+	public static void main(String str[])
+	{
+		FullTime obj1 = new FullTime();
+		obj1.setName("Vijay");;
+		String Name = obj1.getName();
+		obj1.ComputeSalary();
+		obj1.getSalary();
+		int Salary = obj1.getSalary();
+		System.out.println(Name+" "+Salary);
+	}
+}
