@@ -1,0 +1,46 @@
+interface GrandFather
+{
+	int PocketMoney3 = 200;
+}
+
+interface GrandMother extends GrandFather
+{
+	int PocketMoney4 = 300;
+}
+
+class Father implements GrandFather
+{
+	int PocketMoney1=100;
+//	PocketMoneyI = PocketMoney1+PocketMoney3;
+	
+	
+}
+
+class Mother extends Father implements GrandMother
+{
+	int PocketMoney2=250;
+	
+}
+
+class son extends Mother
+{
+	int PocketMoney=PocketMoney1+PocketMoney2;
+	void display()
+	{
+		System.out.println("Pocket Money From Father      : "+PocketMoney1);
+		System.out.println("Pocket Money From Mother      : "+PocketMoney2);
+		System.out.println("Pocket Money From GrandFather : "+PocketMoney3);
+		System.out.println("Pocket Money From GrandMother : "+PocketMoney4);
+		System.out.println("Total Pocket Money            : "+(PocketMoney1+PocketMoney2+PocketMoney3+PocketMoney4));
+	}
+	
+}
+
+public class InterfaceSample 
+{
+	public static void main(String strp[])
+	{
+		son s=new son();
+		s.display();
+	}
+}

@@ -1,0 +1,56 @@
+import java.util.*;
+class EmployeeDetails
+{
+	String EmpName,Designaiton;
+	int Experience;
+	
+}
+class Salary extends EmployeeDetails
+{
+	int Basic,Bonus,DA;
+	int Gross,Net,Annual,HRA;
+	void GetSalary()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Name,Basic,DA,Experience");
+		EmpName = sc.next();
+		Basic = sc.nextInt();
+		//Bonus = sc.nextInt();
+		DA = sc.nextInt();
+		Experience=sc.nextInt();
+		Bonus = Experience*(Basic/100);
+		Gross = Basic+Bonus;
+		Annual = Gross*12;
+		
+		
+		HRA = (Annual/10)+DA;
+		sc.close();
+	}
+}
+
+class IncomeTax extends Salary
+{
+	int Tax;
+	void CalculateTax()
+	{
+		Tax = Annual - (HRA*5);
+	}
+	void Display()
+	{
+		System.out.println(EmpName+" "+Experience+" "+Gross+" "+Annual+" "+Bonus+" "+Tax);
+	}
+	
+}
+public class Employee
+{
+	public static void main(String str[])
+	{
+		IncomeTax IT = new IncomeTax();
+		IT.GetSalary();
+		IT.CalculateTax();
+		IT.Display();
+		
+	}
+	
+	
+}
